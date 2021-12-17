@@ -31,7 +31,7 @@ A web application where users can browse and find out various information about 
 
 ### Deployed version
 
-https://search-and-play.netlify.app/
+[here](https://tokenizer-nft.herokuapp.com/)
 
 ## Code Installation
 
