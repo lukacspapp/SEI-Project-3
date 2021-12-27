@@ -220,14 +220,39 @@ Just as I did in Porject-2, on load the index page triggers the getData function
 
 <img src='https://i.imgur.com/s5B3yYy.png'>
 
-    <div className="column columns is-multiline"
-    //* if the user is the owner, give option to add Hikes
+There were two filters on the browse page which I pair coded with Ricardo.
 
-      {isOwner(profile._id) &&_id} handleSubmit={this.addCompHike} /></div>
-      <div className="completed">{completedHikes}</div>
+One is sorting by category,
 
-    </div>
+```
+const handleDropDownCategory = (_event, data) => {
+    if (!data.value) {
+      setFilteredNfts([...nft])
+    } else {
+      const filterArray = nft.filter(nft => {
+        return nft.category === data.value
+      })
+      setFilteredNfts(filterArray)
+    }
+  }
+ ```
+ and the other one is sorting the nfts by price.
+ 
+ ```
+ const handleDropDownPrice = (_event, data) => {
+    const workingArray = [...filteredNfts]
+    if (data.value === 1) {
+      const sortedArray = workingArray.sort((a, b) => a.currentPrice - b.currentPrice)
+      setFilteredNfts(sortedArray)
+    } else if (data.value === 2) {
+      const sortedArray = workingArray.sort((a, b) => b.currentPrice - a.currentPrice)
+      setFilteredNfts(sortedArray)
+    } else setFilteredNfts([...nft])
+  }
+  ```
 
+
+  
 Other than working on app navigation, I also pair programmed with Andy on:
 
 - Adding "Add to Favorites" button & 'Average Rating" on Hike Show Page
