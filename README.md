@@ -168,7 +168,7 @@ For the theme of the website I got the inspiration from [<img src='https://www.s
 
 
 
-### Home Page
+### Home Page - [Component](https://github.com/lukacspapp/SEI-Project-3/blob/main/front-end/src/components/Home.js)
 
 
 <img src="https://i.imgur.com/qlCRYXF.png" alt="login-page" />
