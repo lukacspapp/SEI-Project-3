@@ -40,7 +40,6 @@ A MERN-Stack NFT E-commerce app. Users can view, buy and upload their own nft. O
 
 ### Deployed version
 
-[here](https://tokenizer-nft.herokuapp.com/)
 [<img src="https://i.stack.imgur.com/gVE0j.png" width='20px' alt="linkedin">](https://tokenizer-nft.herokuapp.com/)
 
 ## Code Installation
