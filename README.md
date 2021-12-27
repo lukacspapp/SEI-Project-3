@@ -175,10 +175,48 @@ For the theme of the website I got the inspiration from [<img src='https://www.s
 
 The home page displays a carousel of four images with dotted design provided by Semantic UI React and also two buttons once that leads the user to [Register Page](https://tokenizer-nft.herokuapp.com/register) and once that leads to the [Browse page](https://tokenizer-nft.herokuapp.com/browse). For the animaton of the website I used [animate.css](https://animate.style/). The carousel was designed by me and Gayatri.
 
-On load the index page triggers the getData function that makes the request to the API with axios and sets the data to a useState. Once the data is returned I am using <code>.map</code> array method to return the first 4 images for the carousel.
-
-
+Just as I did in Porject-2, on load the index page triggers the getData function that makes the request to the API with axios and sets the data to a useState.
 ```
+ useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios.get('/api/all')
+        if (!data) throw new Error()
+        setNftData(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getData()
+  }, [])
+  ```
+  
+ Once the data is returned I am using <code>.filter</code> array method to return the first 4 images for the carousel.
+```
+{nftData.filter((_item, index) => index < 4).map((product, index) => {
+                      return (
+                        <>
+                          <Slide key={index}>
+                            <Card as='a' href={`/browse/${product._id}`}>
+                              <Image src={product.image}></Image>
+                              <Card.Content>
+                                <Card.Header>{product.name}</Card.Header>
+                              </Card.Content>
+                              <Card.Content extra>
+                                <Label>
+                                  <Icon name='bitcoin'/>Price: {product.currentPrice}
+                                </Label>
+                              </Card.Content>
+                            </Card>
+                          </Slide>
+                          <Divider />
+                        </>
+                      )
+                    })}
+```                    
+
+
+
 
     
 
