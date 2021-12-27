@@ -44,11 +44,14 @@ A MERN-Stack NFT E-commerce app. Users can view, buy and upload their own nft. O
 
 ## Code Installation
 
-https://github.com/purvitrivedi/search-and-play
+https://github.com/lukacspapp/SEI-Project-3
 
 - Clone or download the repo
-- Install yarn in Terminal by typing: <code>yarn</code>
-- Start server with <code>yarn start</code>
+- Install dependencies by running <code>yarn</code> Terminal
+- Start the database by running <code>mongod --dbpath ~/data/db</code>
+- Start the server by running <code>yarn serve</code>
+- Go to frontend folder using <code>cd frontend</code> terminal command
+- Run the frontend using <code>yarn start</code>
 
 ## Planning
 
