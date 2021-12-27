@@ -216,48 +216,7 @@ Just as I did in Porject-2, on load the index page triggers the getData function
 ```                    
 
 
-
-
-    
-
-For User Profile, I took the opportunity to explore **conditional rendering** further. This meant:
-
-- The user would never leave the page when they wanted to make edits.
-- The page would show different things based on a user's actions
-
- <img src="frontend/src/styles/assets/README/profile.png" alt="profile-page" />
-
-For example, on for the Bio on the user's profile page:
-
-    <div className="columns is-multiline">
-      <h1 className="subtitle column is-full">About me...</h1>
-
-      // * If "profile edit" is enabled, show the Edit Bio button
-
-      {this.state.edit && <p onClick={this.enableEditBio} className="edit-bio">Edit bio</p>}
-
-      // * If showBio is true (i.e Edit Bio has not been clicked) - Show the Bio
-
-      {this.state.showBio && <div>
-      <p className="bio">
-      {profile.bio}
-      </p></div>}
-
-      // * If showBio is false, then show a text area input wher user can edit the bio:
-
-      {!this.state.showBio &&
-        <div className="columns is-multiline">
-            <textarea
-            className="textarea column"
-            value={this.state.bio}
-            onChange={this.handleChange}
-            name="bio"
-            />
-            <p className="edit-bio-btn column is-centered" onClick={this.sendPutRequest}>Submit</p>
-        </div>}
-    </div>
-
-### Browse Page - Component
+### Browse Page - [Component](https://github.com/lukacspapp/SEI-Project-3/blob/main/front-end/src/components/ProductIndex.js)
 
 <img src='https://i.imgur.com/s5B3yYy.png'>
 
