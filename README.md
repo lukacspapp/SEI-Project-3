@@ -33,7 +33,7 @@ Ricardo Rivera-Cabrera - [<img src="https://i.stack.imgur.com/gVE0j.png" width='
 - Animate.css
 
 
-[<img src="https://i.stack.imgur.com/gVE0j.png" width='20px' alt="linkedin">](https://www.linkedin.com/in/lukacsjpapp/)    
+[<img src="https://media1.giphy.com/media/PdwdLo40wUbtcm52fj/giphy.gif?cid=790b7611c325b9fe4a75fe3b19fcd6399d44900cd6682be0&rid=giphy.gif&ct=g" width='20px' alt="linkedin">](https://www.linkedin.com/in/lukacsjpapp/)    
 
 ### Deployed version
 
