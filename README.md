@@ -285,7 +285,49 @@ All three of us addedd 20 NFTs each to the intitial database throughout this 9 d
 
 **Planning**:
 
-While we did a great job planning as a team, it was slightly challenging as I was still full trying to understand the difference between Embedded and Referenced Data. Fortunately, this was the perfect project to solidify my understanding in this area.
+Semantic UI React - While we did a great job planning as a team, it was definitely challenging to learn a new CSS framework in such a short period of time but at the and we were glad we did as it turned out to be a big win.
+
+The clearing Cart Method - This was definitely a big challenge for the team and Ricardo rewrote the backend part with two methods from Mongoose
+
+One is the <code>$pull</code>
+```
+export const removeOneFromCart = async (req,res) => {
+  try {
+    const { item }  = req.body
+    const user = await User.findById(req.currentUser._id)
+    if (!user) throw new Error()
+    const updatedCart = await User.findOneAndUpdate(
+      { _id: req.currentUser._id },
+      { $pull: { 'cart': { 'item': item._id } } },
+      { returnDocument: 'after' }
+    )
+    return res.status(202).json(updatedCart)
+  } catch (error) {
+    console.log(error)
+    return res.sendStatus(404)
+  }
+}
+```
+The Other is the <code>$set</code>
+```
+export const clearCart = async (req,res) => {
+
+  try {
+    const user = await User.findById(req.currentUser._id)
+    if (!user) throw new Error()
+    const updatedUser = await User.findByIdAndUpdate(req.currentUser._id,
+      { $set: { 'cart': [] } },
+      { multi: true,returnDocument: 'after' }
+    )
+    return res.status(202).json(updatedUser)  
+  } catch (error) {
+    console.log(error)
+    return res.sendStatus(404)
+  }
+}
+```
+
+
 
 **Navigating from one user profile to another**:
 
