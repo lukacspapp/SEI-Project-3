@@ -79,35 +79,30 @@ We had a strong start as the three of us finished the Backend by the end of Day 
 
 **From initial notes**:
 
-> **Hike**
+> **NFT**
 >
-> - Name | Location (lat/long)| Country | Description | Distance | Difficulty | Duration | Images | Seasons | User images (referenced) | Reviews(embedded) |Ratings (embedded)
+> - Token | Image | Category | Name | Owner | Available | Current price | Transactions(embedded) 
 
-> **Group**:
+> **Transaction**:
 >
-> - Group Name | Group Members (referenced))| Events: name, date, duration, selection of hikes (referenced) | image | User Images (embedded) | group chat (embedded)
+> - Type | From | To | Price | Time stamp
 
 > **User**:
 >
-> - Username | Email | Password & validation | Image | Bio | Completed Hikes(embedded) | Favourite Hikes (embedded) | Groups Joined (referenced)
+> - Username | Email | Password | Cart(embedded)
 
-Each model had embedded and referenced data in them. For example, for user model I added favorited hikes as embedded data:
-
-        const favoriteHikesSchema = new mongoose.Schema({
-          hike: { type: mongoose.Schema.ObjectId, ref: 'Hike', required: true }
-        })
-
-        const userSchema = new mongoose.Schema({
-          username: { type: String, required: true, unique: true, maxlength: 50 },
-          email: { type: String, required: true, unique: true },
-          password: { type: String, required: true },
-          fullName: { type: String },
-          bio: { type: String },
-          profileImage: { type: String },
-          favoritedHikes: [favoriteHikesSchema],
-          completedHikes: [completedHikesSchema]
-        }
-        )
+```
+const nftSchema = new mongoose.Schema({
+  token: { type: String },
+  image: { type: String, required: true, unique: true },
+  category: { type: String },
+  name: { type: String, required: true, unique: true },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  available: { type: Boolean, required: true },
+  currentPrice: { type: Number, min: 0 },
+  transactions: [transactionSchema]
+})
+```
 
 Andy then referenced the favorited & completed hikes in the Hike model to show a logged-in user if they had taken any actions with the hike they were viewing:
 
