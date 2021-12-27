@@ -144,7 +144,7 @@ const cartItem = new mongoose.Schema({
 > - [Users](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/users.js)
 
 
-## Frontend (Day 4 to 8)
+## Frontend and Seeding (Day 4 to 9)
 
 On day 4, we moved on to Frontend. After setting up the React App, installing HTTP proxy middleware and Nodemon, we began our work.
 
@@ -272,45 +272,14 @@ const handleDropDownCategory = (_event, data) => {
 
  <img src='https://i.imgur.com/Ehj72KV.png'>
 
+  Other than working on the footer I also implemented design elements to the add NFT page, Login page and the Register page. 
 
 
 
+### Seeding 
 
+All three of us addedd 20 NFTs each to the intitial database throughout this 9 days mostly sorced from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='20px' > Kraken](https://www.kraken.com/en-gb/)
 
-  
-Other than working on app navigation, I also pair programmed with Andy on:
-
-- Adding "Add to Favorites" button & 'Average Rating" on Hike Show Page
-- Error handling and styling of forms on Hike and User profile pages.
-
-For Average ratings, we used a **callback function**. This ensured the average rating would not be calculated until we posted the rating AND received the updated Hike data from the backend.
-
-    handleSubmitReview = async (event, rating, text) => {
-      event.preventDefault()
-      try {
-        const hikeId = this.props.match.params.id
-        await reviewHike(hikeId, { rating: rating, text: text })
-        const res = await getSingleHike(hikeId)
-        this.setState({ hike: res.data, errors: '', reviewText: '', reviewRating: '' },
-          () => {
-            this.getAverageRating()
-          })
-      } catch (err) {
-        this.setState({ errors: JSON.parse(err.response.config.data) })
-      }
-    }
-
-## Seeding (Day 9)
-
-The final day was spent populating the database with Hikes, Groups and Users. We ensured that Hikes and Groups were created by random users by writing this script in seeds.js:
-
-    const hikesWithUsers = hikeData.map(hike => {
-      return { ...hike, user: createdUsers[Math.floor(Math.random() * createdUsers.length)]._id }
-    })
-
-    const groupsWithUsers = groupData.map(group => {
-      return { ...group, createdMember: createdUsers[Math.floor(Math.random() * createdUsers.length)]._id }
-    })
 
 ## Challenges
 
