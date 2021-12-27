@@ -1,4 +1,4 @@
-# General Assembly Project 3: Tokenizer 🪙
+# General Assembly Project 3 - Tokenizer 🪙
 
 **_Timeframe_**
 
