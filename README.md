@@ -173,7 +173,13 @@ For the theme of the website I got the inspiration from [<img src='https://www.s
 
 <img src="https://i.imgur.com/qlCRYXF.png" alt="login-page" />
 
-The home page displays a carousel of four images with dotted design provided by Semantic UI React and also two buttons once that leads the user to [Register Page](https://tokenizer-nft.herokuapp.com/register) and once that leads to the [Browse page](https://tokenizer-nft.herokuapp.com/browse). For the animaton of the website I used [animate.css](https://animate.style/)
+The home page displays a carousel of four images with dotted design provided by Semantic UI React and also two buttons once that leads the user to [Register Page](https://tokenizer-nft.herokuapp.com/register) and once that leads to the [Browse page](https://tokenizer-nft.herokuapp.com/browse). For the animaton of the website I used [animate.css](https://animate.style/). The carousel was designed by me and Gayatri.
+
+On load the index page triggers the getData function that makes the request to the API with axios and sets the data to a useState. Once the data is returned I am using <code>.map</code> array method to return the first 4 images for the carousel.
+
+
+```
+
     
 
 For User Profile, I took the opportunity to explore **conditional rendering** further. This meant:
