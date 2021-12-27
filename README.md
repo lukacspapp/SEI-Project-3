@@ -55,7 +55,7 @@ https://github.com/lukacspapp/SEI-Project-3
 
 ## Planning
 
-We have decided to build the backend together. One person was sharing screen and the other two guided the coding person. The backend part took three full days to build out and each member of the group coded for one day during that time. For the frontend we used Assana [<img src="https://cdn.worldvectorlogo.com/logos/asana-logo.svg" width='20px'  />](https://app.asana.com/) to plan out responsibilities for each member.
+We have decided to build the backend together. One person was sharing screen and the other two guided the coding person. The backend part took three full days to build out and each member of the group coded for one day during that time. For the frontend we used [<img src="https://cdn.worldvectorlogo.com/logos/asana-logo.svg" width='20px'  />](https://app.asana.com/) Assana to plan out responsibilities for each member.
 
 <img src="https://i.imgur.com/nlJIZIj.png" />
 
