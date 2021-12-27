@@ -255,16 +255,15 @@ const handleDropDownCategory = (_event, data) => {
   The functions are implemented in the component like this:
   
   ```
-             <Container className='animate__animated animate__slideInLeft' >
-              <Menu compact style={{ margin: '10px 0em' }}>
-                <Dropdown placeholder='By Category' clearable onChange={handleDropDownCategory} options={category} simple item />
-              </Menu>
-              <Menu compact>
-                <Dropdown placeholder='By Price' clearable onChange={handleDropDownPrice} options={options} simple item />
-              </Menu>
-            </Container>
-            
-      ```      
+   <Container className='animate__animated animate__slideInLeft' >
+    <Menu compact style={{ margin: '10px 0em' }}>
+      <Dropdown placeholder='By Category' clearable onChange={handleDropDownCategory} options={category} simple item />
+     </Menu>
+     <Menu compact>
+       <Dropdown placeholder='By Price' clearable onChange={handleDropDownPrice} options={options} simple item />
+     </Menu>
+    </Container>
+   ```
   
   
   
