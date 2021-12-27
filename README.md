@@ -32,10 +32,6 @@ Ricardo Rivera-Cabrera - [<img src="https://i.stack.imgur.com/gVE0j.png" width='
 - date-fns
 - Animate.css
 
-# Brewdog API
-A web application where users can browse and find out various information about their favourite brewdog drink.
-(https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1)
-
 ![Artist Show](src/assets/artist-show-gif.gif)
 
 ### Deployed version
