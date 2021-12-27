@@ -73,7 +73,7 @@ Our notes are outlined in the next section with code examples.
 
 ## Backend (Day 1 to 3)
 
-We had a strong start as the three of us finished the Backend by the end of Day 3. On Day 2, each of us worked on our models, controller and routes. On Day 3, we helped each other test and troubleshoot bugs.
+We had a strong start as the three of us finished the Backend by the end of Day 3. On Day 2, We worked on our models, controller and routes. On Day 3, we troubleshooted bugs together.
 
 ### Models
 
