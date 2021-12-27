@@ -81,15 +81,7 @@ We had a strong start as the three of us finished the Backend by the end of Day 
 
 > **NFT**
 >
-> - Token | Image | Category | Name | Owner | Available | Current price | Transactions(embedded) 
-
-> **Transaction**:
->
-> - Type | From | To | Price | Time stamp
-
-> **User**:
->
-> - Username | Email | Password | Cart(embedded)
+> - [Token | Image | Category | Name | Owner | Available | Current price | Transactions(embedded)](https://github.com/lukacspapp/SEI-Project-3/blob/main/models/nft.js) 
 
 ```
 const nftSchema = new mongoose.Schema({
@@ -101,6 +93,45 @@ const nftSchema = new mongoose.Schema({
   available: { type: Boolean, required: true },
   currentPrice: { type: Number, min: 0 },
   transactions: [transactionSchema]
+})
+```
+
+
+
+> **Transaction**:
+>
+> - [Type | From | To | Price | Time stamp](https://github.com/lukacspapp/SEI-Project-3/blob/main/models/nft.js)
+
+```
+const transactionSchema = new mongoose.Schema({
+  type: { type: String, required: true },
+  from: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  to: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  price: { type: Number, required: true }
+},
+{
+  timestamps: true
+})
+```
+
+> **User**:
+>
+> - [Username | Email | Password | Cart(embedded) | Time stamp]()
+
+```
+
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true, maxlength: 30 },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  cart: [cartItem]
+},
+{
+  timestamps: true
+})
+
+const cartItem = new mongoose.Schema({
+  item: { type: mongoose.Schema.ObjectId, ref: 'Nft', required: true, unique: true, sparse: true }
 })
 ```
 
