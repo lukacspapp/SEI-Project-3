@@ -2,15 +2,15 @@
 
 **_Timeframe_**
 
-48 hours
+9 days
 
 ## Goal:
 
-A pair-coded programming hackathon to develop a React app using external APIs.
+A group project to design a full-stack React app using Node.js, Express & MongoDB.
 
 ## Project Members:
 
-Lukas Papp
+Lukacs Papp - [<img src="https://i.stack.imgur.com/gVE0j.png" width='20px' alt="linkedin">](https://www.linkedin.com/in/lukacsjpapp/)    [<img src='https://media1.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif?cid=ecf05e47x2g034i9pzwtzzsd3xgg2w9nr94t4tflbbgo3008&rid=giphy.gif' width='20px'>](https://github.com/lukacspapp)
 
 ## Technologies Used
 
