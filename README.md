@@ -169,7 +169,7 @@ Ricardo: NFT detail page and the functionality of the Cart page.
 
 
 
-For the theme of the website I got the inspiration from [<img src='https://www.svgrepo.com/show/331457/kraken.svg'>](https://www.kraken.com/en-gb/)    wanted a user to design the process like [Ableton's](https://www.ableton.com/en/login/), which meant:
+For the theme of the website I got the inspiration from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width:'30px' >](https://www.kraken.com/en-gb/)    wanted a user to design the process like [Ableton's](https://www.ableton.com/en/login/), which meant:
 
 - The Login and Register options were on the same page and;
 - The used was logged in automatically after they registered.
