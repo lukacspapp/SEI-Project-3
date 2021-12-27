@@ -32,6 +32,9 @@ Ricardo Rivera-Cabrera - [<img src="https://i.stack.imgur.com/gVE0j.png" width='
 - date-fns
 - Animate.css
 
+# Tokenizer
+
+A MERN-Stack NFT E-commerce app. Users can view, buy and upload their own nft. Once a user is registered they can uploadand edit thier nft. All nfts has their own price charts so users can follow price fluctuations of all nfts.
 
 [<img src="https://i.imgur.com/qlCRYXF.png"  alt="linkedin">](https://tokenizer-nft.herokuapp.com/)    
 
