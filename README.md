@@ -173,20 +173,8 @@ For the theme of the website I got the inspiration from [<img src='https://www.s
 
 <img src="https://i.imgur.com/qlCRYXF.png" alt="login-page" />
 
-To do this I ensured that both register and login controllers returned a token on the backend. On the frontend, once a user registered - I logged them in and sent them to the Hikes Index page:
-
-    handleSubmit = async (event, path) => {
-      event.preventDefault()
-      try {
-        const res = await registerUser(this.state.formData)
-        setToken(res.data.token)
-        path.push('/hikes')
-
-      } catch (err) {
-        this.setState({ errors: err.response.data.errors })
-
-      }
-    }
+The home page displays a carousel of four images with dotted design provided by Semantic UI React and also two buttons once that leads the user to [Register Page](https://tokenizer-nft.herokuapp.com/register) and once that leads to the [Browse page](https://tokenizer-nft.herokuapp.com/browse). For the animaton of the website I used [animate.css](https://animate.style/)
+    
 
 For User Profile, I took the opportunity to explore **conditional rendering** further. This meant:
 
