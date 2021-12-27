@@ -77,7 +77,6 @@ We had a strong start as the three of us finished the Backend by the end of Day 
 
 ### Models
 
-**From initial notes**:
 
 > **NFT**
 >
@@ -144,47 +143,13 @@ Andy then referenced the favorited & completed hikes in the Hike model to show a
         foreignField: 'favoritedHikes'
       })
 
-**Another example:**
-
-Kuriko created the group model, with members as embedded data:
-
-    const groupMemberSchema = new mongoose.Schema({
-      user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-    }, {
-      timestamps: true
-    })
-
-    const groupSchema = new mongoose.Schema({
-      name: { type: String, required: true, unique: true },
-      createdMember: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-      members: [ groupMemberSchema ],
-      headerImage: { type: String, required: true },
-      description: { type: String, required: true, maxlength: 500 },
-      userAddedImages: [ userAddedImageSchema ],
-      messages: [ groupMessageSchema ],
-      events: [ eventSchema ]
-    }, {
-      timestamps: true
-    })
-
-I was then able to reference the Group model, so a profile would include the list of groups joined by the user:
-
-        // * for groups joined by user
-        userSchema
-          .virtual('joinedGroups', {
-            ref: 'Group',
-            localField: '_id',
-            foreignField: 'members.user'
-          })
-
 ### Controllers
 
-**From initial notes**:
+
 > Create, Read, Update and Delete Methods were written for:
->
-> - Hikes, Reviews and Hike Images
-> - Groups, Group Images, Chats, Events, Members
-> - Login, Register, Profiles, user favorited Hikes and completed hikes
+
+> -[Nfts](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/nfts.js)
+> - [Users](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/users.js)
 
 Since we had a lot of embedded and referenced data, we used array methods such as <code>flatMap</code> and <code>reduce</code> so we didn't populate unneccesary data in a request. For examples, in order to simply get the id of the groups a user has joined, I wrote this inside the <code>userShow</code> function:
 
