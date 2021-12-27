@@ -191,7 +191,7 @@ Just as I did in Porject-2, on load the index page triggers the getData function
   }, [])
   ```
   
- Once the data is returned I am using <code>.filter</code> array method to return the first 4 images for the carousel.
+ Once the data is returned I am using <code>.filter</code> array method to return information about the first for items for the carousel.
 ```
 {nftData.filter((_item, index) => index < 4).map((product, index) => {
                       return (
