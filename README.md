@@ -116,7 +116,7 @@ const transactionSchema = new mongoose.Schema({
 
 > **User**:
 >
-> - [Username | Email | Password | Cart(embedded) | Time stamp]()
+> - [Username | Email | Password | Cart(embedded) | Time stamp](https://github.com/lukacspapp/SEI-Project-3/blob/main/models/user.js)
 
 ```
 
