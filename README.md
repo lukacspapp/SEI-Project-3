@@ -168,7 +168,6 @@ Ricardo: NFT detail page and the functionality of the Cart page.
 
 
 
-on Login, Register page, the add your NFT form and Navbar(Gayatri), Home, Browse page, design of the add your NFT page and Footer(me) with the price chart (Ricardo).
 
 For Authentication, I wanted a user to design the process like [Ableton's](https://www.ableton.com/en/login/), which meant:
 
