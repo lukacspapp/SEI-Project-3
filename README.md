@@ -134,21 +134,13 @@ const cartItem = new mongoose.Schema({
 })
 ```
 
-Andy then referenced the favorited & completed hikes in the Hike model to show a logged-in user if they had taken any actions with the hike they were viewing:
-
-    hikeSchema
-      .virtual('usersFavorited', {
-        ref: 'User',
-        localField: '_id',
-        foreignField: 'favoritedHikes'
-      })
 
 ### Controllers
 
 
 > Create, Read, Update and Delete Methods were written for:
 
-> -[Nfts](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/nfts.js)
+> - [Nfts](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/nfts.js)
 > - [Users](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/users.js)
 
 Since we had a lot of embedded and referenced data, we used array methods such as <code>flatMap</code> and <code>reduce</code> so we didn't populate unneccesary data in a request. For examples, in order to simply get the id of the groups a user has joined, I wrote this inside the <code>userShow</code> function:
