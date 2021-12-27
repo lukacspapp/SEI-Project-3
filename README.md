@@ -169,12 +169,9 @@ Ricardo: NFT detail page and the functionality of the Cart page.
 
 
 
-For the theme of the website I got the inspiration from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='30px' > Kraken](https://www.kraken.com/en-gb/)   
+For the theme of the website I got the inspiration from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='20px' > Kraken](https://www.kraken.com/en-gb/)   
 
 
-
-- The Login and Register options were on the same page and;
-- The used was logged in automatically after they registered.
 
 <img src="frontend/src/styles/assets/README/login.png" alt="login-page" />
 
