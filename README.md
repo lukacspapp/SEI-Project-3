@@ -33,7 +33,7 @@ Ricardo Rivera-Cabrera - [<img src="https://i.stack.imgur.com/gVE0j.png" width='
 - Animate.css
 
 
-[<img src="https://i.imgur.com/qlCRYXF.png" width='20px' alt="linkedin">](https://www.linkedin.com/in/lukacsjpapp/)    
+[<img src="https://i.imgur.com/qlCRYXF.png"  alt="linkedin">](https://tokenizer-nft.herokuapp.com/)    
 
 ### Deployed version
 
