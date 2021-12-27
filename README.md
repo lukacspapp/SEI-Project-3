@@ -150,12 +150,11 @@ On day 4, we moved on to Frontend. After setting up the React App, installing HT
 
 > **Lukacs**:
 > 
-> - Home page, Browser page, Footer, design the Theme of the website
-  Home page, Browser page, Footer, design the Theme of the website
+> - [Home page](https://tokenizer-nft.herokuapp.com/), [Browser page](https://tokenizer-nft.herokuapp.com/browse), [Footer](https://tokenizer-nft.herokuapp.com/), design the Theme of the website
 
 > **Gayatri**:
 > 
-> - Login page, Register page, Add your NFT page
+> - [Login page](https://tokenizer-nft.herokuapp.com/login), [Register page](https://tokenizer-nft.herokuapp.com/register), [Add your NFT page](https://tokenizer-nft.herokuapp.com/profile/add)
 
 > **Ricardo**:
 > 
