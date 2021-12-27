@@ -287,7 +287,7 @@ All three of us addedd 20 NFTs each to the intitial database throughout this 9 d
 
 Semantic UI React - While we did a great job planning as a team, it was definitely challenging to learn a new CSS framework in such a short period of time but at the and we were glad we did as it turned out to be a big win.
 
-The clearing Cart Method - This was definitely a big challenge for the team and Ricardo rewrote the backend part with two methods from Mongoose
+The clearing [Cart Method](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/users.js) - This was definitely a big challenge for the team and Ricardo rewrote the backend part with two methods from Mongoose
 
 One is the <code>$pull</code>
 ```
@@ -308,7 +308,10 @@ export const removeOneFromCart = async (req,res) => {
   }
 }
 ```
-The Other is the <code>$set</code>
+The Other is the <code>$set</code> which sets the cart array to be empty 
+
+
+
 ```
 export const clearCart = async (req,res) => {
 
@@ -328,41 +331,24 @@ export const clearCart = async (req,res) => {
 ```
 
 
-
-**Navigating from one user profile to another**:
-
-This was an interesting challenge and I very much enjoyed solving it.
-
-**The problem**: If a user was a different user's profile page and then attempted to go to their own profile from the Navbar, they couldn't as the link structure was similar: /profile/:id. This meant that while the link would change in the address bar, the page would not re-render.
-
-**Solution**: Using <code>componentDidUpdate</code> on the Profile component:
-
-    componentDidUpdate = async (prevProps) => {
-       if (prevProps.location.pathname.includes('/profiles/') && this.props.location.pathname.includes('/profiles/')) {
-         if (this.props.location.pathname !== prevProps.location.pathname) {
-           const id = this.props.match.params.id
-           const res = await getUser(id)
-           this.setState({ profile: res.data, bio: res.data.bio, image: res.data.profileImage, fullName: res.data.fullName })
-         }
-       }
-     }
-
 ## Wins
 
 Planning ✍️ : This one comes in under challenges and wins! While getting the right answer took some time, spending our Day 1 on planning alone meant we made a strong start and finished the backend in two days.
 
-Features ✨: I'm very happy with the amount of work we got done in 9 days. The app offers tons of functionality whilst still having a strong user journey.
+Reading 📕 : Learning reading documentation for the Semantic UI and Mongoose.
 
-Styling 📱: The app is slick and responsive, something we were very keen on achieving since Hiking websites don't usually have "beautiful" styling.
+Features ✨: I'm very happy with the amount of work we got done in 9 days. The app offers several functionality whilst still having a strong user journey..
+
+Styling 🤩: The app has a slick design , something I was very keen to achive was a modern, proffessional looking website with nice color.
 
 ## Key Learnings
 
 * When to use Embedded vs Referenced data
-* How to use callback function & ComponentDidUpdate in React
-* How to working with a team member who works in a different time-zone - something that is very much possible as companies move towards remote working.
+* Learning to read documentation
+* How to be working in a team while managing time.
 
 ## Future Improvements
 
-- Creating Group seeds with Group members: A challenge I wanted to solve but we ran out of time.
-- Events Page Styling: Make this inline-with other pages
-- Error Handling on the frontend
+- Make all the pages responsive:
+- Adding a package for picture uploading so users can upload images from thier device 
+- Error handling on the frontend
