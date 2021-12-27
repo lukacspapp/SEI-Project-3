@@ -143,22 +143,20 @@ const cartItem = new mongoose.Schema({
 > - [Nfts](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/nfts.js)
 > - [Users](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/users.js)
 
-Since we had a lot of embedded and referenced data, we used array methods such as <code>flatMap</code> and <code>reduce</code> so we didn't populate unneccesary data in a request. For examples, in order to simply get the id of the groups a user has joined, I wrote this inside the <code>userShow</code> function:
-
-    if (user.joinedGroups) {
-      user.joinedGroups = user.joinedGroups.flatMap(item => item.\_id).reduce((arr,curr)  => {
-      if (arr.length === 0) {
-      arr.push(curr)
-      }
-      if (!arr.find(item => item.\_id === curr.\_id)) {
-      arr.push(curr)
-      }
-      return arr
-    }, [])
 
 ## Frontend (Day 4 to 8)
 
-On day 4, we moved on to Frontend. After setting up the React App, installing HTTP proxy middleware and Nodemon, we began our work on Hikes(Andy), Groups(Kuriko) and Users(me!).
+On day 4, we moved on to Frontend. After setting up the React App, installing HTTP proxy middleware and Nodemon, we began our work.
+
+Lukacs: Home page, Browser page, Footer, design the Theme of the website
+Gayatri: Login page, Register page, Add your NFT page
+Ricardo: NFT detail page and the functionality of the Cart page. 
+
+
+
+
+
+on Login, Register page, the add your NFT form and Navbar(Gayatri), Home, Browse page, design of the add your NFT page and Footer(me) with the price chart (Ricardo).
 
 For Authentication, I wanted a user to design the process like [Ableton's](https://www.ableton.com/en/login/), which meant:
 
