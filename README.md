@@ -32,7 +32,7 @@ Ricardo Rivera-Cabrera - [<img src="https://i.stack.imgur.com/gVE0j.png" width='
 - date-fns
 - Animate.css
 
-![Tokenizer](fron-end/src/assets/Project Name.gif)
+![Tokenizer](front-end/src/assets/Project Name.gif)
 
 ### Deployed version
 
