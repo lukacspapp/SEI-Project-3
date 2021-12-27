@@ -1,4 +1,4 @@
-# General Assembly Project 3 - Tokenizer 🪙
+# General Assembly Project 3 - Tokenizer <img src="https://i.imgur.com/aDlFCzn.png"  alt="tokenizer">
 
 **_Timeframe_**
 
