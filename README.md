@@ -1,4 +1,4 @@
-# General Assembly Project 2: Tokenizer
+# General Assembly Project 3: Tokenizer 🪙
 
 **_Timeframe_**
 
@@ -18,14 +18,19 @@ Ricardo Rivera-Cabrera - [<img src="https://i.stack.imgur.com/gVE0j.png" width='
 
 ## Technologies Used
 
-- Brewdog's API
 - React.js
-- JavaScript (ES6)
-- HTML 5
-- SASS/SCSS/CSS
-- Bulma
-- Git/GitHub
+- Node.js
+- Express
+- MongoDB/Mongoose
+- SASS
+- Semantic UI React
 - Axios
+- Recharts
+- HTTP-proxy-middleware
+- Bcrypt
+- jsonwebtoken
+- date-fns
+- Animate.css
 
 # Brewdog API
 A web application where users can browse and find out various information about their favourite brewdog drink.
