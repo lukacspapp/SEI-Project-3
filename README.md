@@ -78,7 +78,7 @@ We had a strong start as the three of us finished the Backend by the end of Day 
 ### Models
 
 
-> **NFT**
+> **NFT**:
 >
 > - [Token | Image | Category | Name | Owner | Available | Current price | Transactions(embedded)](https://github.com/lukacspapp/SEI-Project-3/blob/main/models/nft.js) 
 
@@ -147,6 +147,19 @@ const cartItem = new mongoose.Schema({
 ## Frontend (Day 4 to 8)
 
 On day 4, we moved on to Frontend. After setting up the React App, installing HTTP proxy middleware and Nodemon, we began our work.
+
+> **Lukacs**:
+> 
+> - Home page, Browser page, Footer, design the Theme of the website
+  Home page, Browser page, Footer, design the Theme of the website
+
+> **Gayatri**:
+> 
+> - Login page, Register page, Add your NFT page
+
+> **Ricardo**:
+> 
+> - NFT detail page and the functionality of the Cart page. 
 
 Lukacs: Home page, Browser page, Footer, design the Theme of the website
 Gayatri: Login page, Register page, Add your NFT page
