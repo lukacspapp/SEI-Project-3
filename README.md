@@ -169,7 +169,7 @@ Ricardo: NFT detail page and the functionality of the Cart page.
 
 
 
-For the theme of the website I got the inspiration from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='30px' >](https://www.kraken.com/en-gb/)   
+For the theme of the website I got the inspiration from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='30px' > Kraken](https://www.kraken.com/en-gb/)   
 
 
 
