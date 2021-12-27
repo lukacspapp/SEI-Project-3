@@ -55,165 +55,271 @@ https://github.com/lukacspapp/SEI-Project-3
 
 ## Planning
 
-### Testing the API on Insomnia
+We have decided to build the backend together. One person was sharing screen and the other two guided the coding person. The backend part took three full days to build out and each member of the group coded for one day during that time. For the frontend we used Assana to plan out responsibilities for each member.
 
-We were pretty set on using a music-based API and since this was a hackathon, iTunes Search API was the most accessible.
+<img src="https://i.imgur.com/nlJIZIj.png" />
 
-The API returns 200 media (music, podcasts, videos etc.) results based on a query. For music media, the results included track details, album covers and previewTrackURL.
+### Wireframe
 
-We found 4 queries that we could use on our app:
+Like project-2, we also planned out the basic look of Hikr on Miro.
 
-By default the API would give 50 results, so we added <code>limit=200</code> in the URL as that is the maximum amount of results it can give us.
+<img src="frontend/src/styles/assets/README/hikr-home-miro.png" alt="home-page-miro" width="400" /> <img src="frontend/src/styles/assets/README/hike-index-miro.png" alt="hikr-index-miro" width="400" /> <img src="frontend/src/styles/assets/README/hike-show-miro.png" alt="hike-show-miro" width="400" /> <img src="frontend/src/styles/assets/README/login-miro.png" alt="login-miro" width="400" /> <img src="frontend/src/styles/assets/README/profile-miro.png" alt="profile-miro" width="400" /> <img src="frontend/src/styles/assets/README/group-miro.png" alt="group-miro" width="400" />
 
-<img src="src/assets/insomnia.png" alt="insomnia" />
+# Process
 
-- Search by Word: https://itunes.apple.com/search?term=solange&media=music&entity=song&limit=200
+As each of us had our Backend areas to work on, we first planned out what models, controllers & routes each of us will be writing before moving on to the code session. We also decided on which aspects of our models will be embedded or referenced.
 
-- Search by Word in Song: https://itunes.apple.com/search?term=garden&attribute=songTerm&media=music&entity=song&limit=200
+Our notes are outlined in the next section with code examples.
 
-- Search by Word in Artist Name: https://itunes.apple.com/search?term=cutchemist&attribute=artistTerm&media=music&entity=song&limit=200
+## Backend (Day 1 to 3)
 
-- Search by Word in Album Name: https://itunes.apple.com/search?term=butterfly&attribute=albumTerm&media=music&entity=song&limit=200
+We had a strong start as the three of us finished the Backend by the end of Day 3. On Day 2, each of us worked on our models, controller and routes. On Day 3, we helped each other test and troubleshoot bugs.
 
-### Prototypes with Miro
+### Models
 
-We decided to have a simple two-page app: Home Page (/) & Tracks Page (/tracks). The Tracks page would show all the results as an index until a user clicked on one of them. On click, the album index will skew, make space for the track and play it.
+**From initial notes**:
 
-<img src="src/assets/home-page-miro.png" alt="home-page" width="300" /> <img src="src/assets/album-index-miro.png" alt="album-index" width="300" /> <img src="src/assets/artist-show-miro.png" alt="artist-show" width="300" />
+> **Hike**
+>
+> - Name | Location (lat/long)| Country | Description | Distance | Difficulty | Duration | Images | Seasons | User images (referenced) | Reviews(embedded) |Ratings (embedded)
 
-## Development
+> **Group**:
+>
+> - Group Name | Group Members (referenced))| Events: name, date, duration, selection of hikes (referenced) | image | User Images (embedded) | group chat (embedded)
 
-### The Home Page
+> **User**:
+>
+> - Username | Email | Password & validation | Image | Bio | Completed Hikes(embedded) | Favourite Hikes (embedded) | Groups Joined (referenced)
 
-<img src="src/assets/home-page-site.png" alt="home-page-site"/>
+Each model had embedded and referenced data in them. For example, for user model I added favorited hikes as embedded data:
 
-The Home page along with the Search Bar make two common components of the app. On load, the homepage calls <code>componentDidMount</code> function using axios for the home page styling. The axios request <code>getAllSongs</code> is in the lib -> api.js file:
+        const favoriteHikesSchema = new mongoose.Schema({
+          hike: { type: mongoose.Schema.ObjectId, ref: 'Hike', required: true }
+        })
 
-    export const getAllSongs = (term, attribute) => {
-      if (attribute === 'Any') {
-        return axios.get(`https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${term}&media=music&entity=song&limit=200`)
+        const userSchema = new mongoose.Schema({
+          username: { type: String, required: true, unique: true, maxlength: 50 },
+          email: { type: String, required: true, unique: true },
+          password: { type: String, required: true },
+          fullName: { type: String },
+          bio: { type: String },
+          profileImage: { type: String },
+          favoritedHikes: [favoriteHikesSchema],
+          completedHikes: [completedHikesSchema]
+        }
+        )
+
+Andy then referenced the favorited & completed hikes in the Hike model to show a logged-in user if they had taken any actions with the hike they were viewing:
+
+    hikeSchema
+      .virtual('usersFavorited', {
+        ref: 'User',
+        localField: '_id',
+        foreignField: 'favoritedHikes'
+      })
+
+**Another example:**
+
+Kuriko created the group model, with members as embedded data:
+
+    const groupMemberSchema = new mongoose.Schema({
+      user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+    }, {
+      timestamps: true
+    })
+
+    const groupSchema = new mongoose.Schema({
+      name: { type: String, required: true, unique: true },
+      createdMember: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+      members: [ groupMemberSchema ],
+      headerImage: { type: String, required: true },
+      description: { type: String, required: true, maxlength: 500 },
+      userAddedImages: [ userAddedImageSchema ],
+      messages: [ groupMessageSchema ],
+      events: [ eventSchema ]
+    }, {
+      timestamps: true
+    })
+
+I was then able to reference the Group model, so a profile would include the list of groups joined by the user:
+
+        // * for groups joined by user
+        userSchema
+          .virtual('joinedGroups', {
+            ref: 'Group',
+            localField: '_id',
+            foreignField: 'members.user'
+          })
+
+### Controllers
+
+**From initial notes**:
+> Create, Read, Update and Delete Methods were written for:
+>
+> - Hikes, Reviews and Hike Images
+> - Groups, Group Images, Chats, Events, Members
+> - Login, Register, Profiles, user favorited Hikes and completed hikes
+
+Since we had a lot of embedded and referenced data, we used array methods such as <code>flatMap</code> and <code>reduce</code> so we didn't populate unneccesary data in a request. For examples, in order to simply get the id of the groups a user has joined, I wrote this inside the <code>userShow</code> function:
+
+    if (user.joinedGroups) {
+      user.joinedGroups = user.joinedGroups.flatMap(item => item.\_id).reduce((arr,curr)  => {
+      if (arr.length === 0) {
+      arr.push(curr)
       }
-      else {
-        return axios.get(`https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${term}&attribute=${attribute}&media=music&entity=song&limit=200`)
+      if (!arr.find(item => item.\_id === curr.\_id)) {
+      arr.push(curr)
+      }
+      return arr
+    }, [])
+
+## Frontend (Day 4 to 8)
+
+On day 4, we moved on to Frontend. After setting up the React App, installing HTTP proxy middleware and Nodemon, we began our work on Hikes(Andy), Groups(Kuriko) and Users(me!).
+
+For Authentication, I wanted a user to design the process like [Ableton's](https://www.ableton.com/en/login/), which meant:
+
+- The Login and Register options were on the same page and;
+- The used was logged in automatically after they registered.
+
+<img src="frontend/src/styles/assets/README/login.png" alt="login-page" />
+
+To do this I ensured that both register and login controllers returned a token on the backend. On the frontend, once a user registered - I logged them in and sent them to the Hikes Index page:
+
+    handleSubmit = async (event, path) => {
+      event.preventDefault()
+      try {
+        const res = await registerUser(this.state.formData)
+        setToken(res.data.token)
+        path.push('/hikes')
+
+      } catch (err) {
+        this.setState({ errors: err.response.data.errors })
+
       }
     }
 
-<em><code>cors-anywhere.herokuapp</code> was added after the deployed on Heroku so we are not blocked by CORS policy.</em>
+For User Profile, I took the opportunity to explore **conditional rendering** further. This meant:
 
-The search bar is a child component of the Home Page. It collects the search team and attribute(such as 'All', 'songTerm', 'artistTerm' & 'albumTerm'). Once we hit enter, we pass these as props by adding them to URL of the Music Index Page.
+- The user would never leave the page when they wanted to make edits.
+- The page would show different things based on a user's actions
 
-    handleSubmit = (event) => {
-      let term = this.state.search.term
-      if (!term) {
-        this.setState({ validate: false })
-        return
-      }
-      let attribute = (this.state.search.attribute ? this.state.search.attribute : 'Any')
-      this.props.history.push(`/tracks/${term}&${attribute}`)
-    }
+ <img src="frontend/src/styles/assets/README/profile.png" alt="profile-page" />
 
-### Music Index Page
+For example, on for the Bio on the user's profile page:
 
-![Music Index](src/assets/album-index-gif.gif)
+    <div className="columns is-multiline">
+      <h1 className="subtitle column is-full">About me...</h1>
 
-On loading, the Music Index Component retrieves the 'term' and 'attribute' values from the URL and adds them to the <code>getAllSongs</code> GET request:
+      // * If "profile edit" is enabled, show the Edit Bio button
 
-    const urlDetails = this.props.location.pathname
-        const term = urlDetails.split('/')[2].split('&')[0].replace(' ', '+')
-        const attribute = urlDetails.split('/')[2].split('&')[1]
+      {this.state.edit && <p onClick={this.enableEditBio} className="edit-bio">Edit bio</p>}
 
+      // * If showBio is true (i.e Edit Bio has not been clicked) - Show the Bio
 
-There are two events on the displayed album covers:
+      {this.state.showBio && <div>
+      <p className="bio">
+      {profile.bio}
+      </p></div>}
 
-onMouseEnter: show the track and artist name in the NavBar
-onMouseClick: Skew the index and show the artist details and play the song.
+      // * If showBio is false, then show a text area input wher user can edit the bio:
 
-    handleClick = (event) => {
-      this.setState({ isSkewedIndex: true })
-      setTimeout(() => { this.setState({ singleArtist: event, isShowingArtist:  true, volume: 0.6 }) }, 500)
-    }
-
-We enable the page to show the track on the right side by using Boolean state values and conditional rendering.
-
-    <div
-    className={`container column
-    ${this.state.isSkewedIndex ? 'slidingAnimation' :'slidingBackAnimation'}
-    ${this.state.isShowingArtist ? 'not-hidden' : 'hidden'}`}>
-        <MusicShow
-        {...this.state.singleArtist}
-        onClick={this.handleBackClick}
-        volume={this.state.volume}/>
+      {!this.state.showBio &&
+        <div className="columns is-multiline">
+            <textarea
+            className="textarea column"
+            value={this.state.bio}
+            onChange={this.handleChange}
+            name="bio"
+            />
+            <p className="edit-bio-btn column is-centered" onClick={this.sendPutRequest}>Submit</p>
+        </div>}
     </div>
 
-### Artist Show Section:
+The profile page also showed different things based on whether the user was the owner of the profile. For example, the owner got an option to add more completed hikes from their profile page:
 
-On click, the index skews to left half of the page:
+    <div className="column columns is-multiline"
+    //* if the user is the owner, give option to add Hikes
 
-    .skew {
-      transform: rotateY(55deg) skew(-13deg) scale(0.95);
-      box-shadow: 4px 10px 36px -2px rgb(241, 240, 169);
+      {isOwner(profile._id) &&_id} handleSubmit={this.addCompHike} /></div>
+      <div className="completed">{completedHikes}</div>
 
-      @media (max-width: 800px) {
-        display: none;
+    </div>
+
+Other than working on app navigation, I also pair programmed with Andy on:
+
+- Adding "Add to Favorites" button & 'Average Rating" on Hike Show Page
+- Error handling and styling of forms on Hike and User profile pages.
+
+For Average ratings, we used a **callback function**. This ensured the average rating would not be calculated until we posted the rating AND received the updated Hike data from the backend.
+
+    handleSubmitReview = async (event, rating, text) => {
+      event.preventDefault()
+      try {
+        const hikeId = this.props.match.params.id
+        await reviewHike(hikeId, { rating: rating, text: text })
+        const res = await getSingleHike(hikeId)
+        this.setState({ hike: res.data, errors: '', reviewText: '', reviewRating: '' },
+          () => {
+            this.getAverageRating()
+          })
+      } catch (err) {
+        this.setState({ errors: JSON.parse(err.response.config.data) })
       }
     }
 
-and the Artist show section comes in with Sliding Animation:
+## Seeding (Day 9)
 
-    .slidingAnimation {
-      animation: slide 1s ease;
-      animation-fill-mode: forwards;
-      background-image: linear-gradient(
-        to right,
-        rgba(247, 247, 247, 0),
-        rgb(10, 10, 9)
-      );
-      right: -400px;
-    }
+The final day was spent populating the database with Hikes, Groups and Users. We ensured that Hikes and Groups were created by random users by writing this script in seeds.js:
 
-    @keyframes slide {
-      100% {
-        right: 0px;
-      }
-    }
+    const hikesWithUsers = hikeData.map(hike => {
+      return { ...hike, user: createdUsers[Math.floor(Math.random() * createdUsers.length)]._id }
+    })
 
-In this page, we use the React Audio Player as it's slightly better than HTML5 Audio player. We set it to 'autoplay' so the song begins playing as the page animates into this section:
-
-    <ReactAudioPlayer autoPlay controls={true} src={props.previewUrl} volume={props.volume}/>
-
-### Finishing Touches & Styling
-
-In the last 4-5 hours, we focused on adding some finishing touches:
-
-* Adding back button on the Music Index Page
-* Styling the artist show section with flexbox
-* Adding flashes to the music index. This was done by re-rendering the page on a timer and assigning <code>className="flash"</code> to random albums.
-* Styling the Home Page
-
-## Wins
-
-Styling :sparkles: . Very pleased with how fun this app is, we learnt so much about animations, timers and using conditional rendering.
-
-Teamwork :raised_hands: . This was the first time I pair-coded for almost 2 days and it was a wonderful experience. Rob and I were always in sync and found that bouncing personal ideas off each other always resulted in something better.
+    const groupsWithUsers = groupData.map(group => {
+      return { ...group, createdMember: createdUsers[Math.floor(Math.random() * createdUsers.length)]._id }
+    })
 
 ## Challenges
 
-CORS :no_entry_sign: . While we were able to solve this easily after deployment, the why of it took me a while to fully understand. Our tutor was very helpful in explaining CORS in details.
+**Planning**:
 
-### Bugs
+While we did a great job planning as a team, it was slightly challenging as I was still full trying to understand the difference between Embedded and Referenced Data. Fortunately, this was the perfect project to solidify my understanding in this area.
 
-Audio Volume: We set the audio volume as 0.6 as a starting point so its not too loud for the user. Due to this, it is not possible to change the volume of the track. We struggled to figure out if React Audio Player's volume can be changed through state -- so this will be a bug we need to solve in future.
+**Navigating from one user profile to another**:
 
+This was an interesting challenge and I very much enjoyed solving it.
+
+**The problem**: If a user was a different user's profile page and then attempted to go to their own profile from the Navbar, they couldn't as the link structure was similar: /profile/:id. This meant that while the link would change in the address bar, the page would not re-render.
+
+**Solution**: Using <code>componentDidUpdate</code> on the Profile component:
+
+    componentDidUpdate = async (prevProps) => {
+       if (prevProps.location.pathname.includes('/profiles/') && this.props.location.pathname.includes('/profiles/')) {
+         if (this.props.location.pathname !== prevProps.location.pathname) {
+           const id = this.props.match.params.id
+           const res = await getUser(id)
+           this.setState({ profile: res.data, bio: res.data.bio, image: res.data.profileImage, fullName: res.data.fullName })
+         }
+       }
+     }
+
+## Wins
+
+Planning ✍️ : This one comes in under challenges and wins! While getting the right answer took some time, spending our Day 1 on planning alone meant we made a strong start and finished the backend in two days.
+
+Features ✨: I'm very happy with the amount of work we got done in 9 days. The app offers tons of functionality whilst still having a strong user journey.
+
+Styling 📱: The app is slick and responsive, something we were very keen on achieving since Hiking websites don't usually have "beautiful" styling.
 
 ## Key Learnings
 
-* React.js: As this was my first React App, I learned a lot about conditional rendering, how state works and how to pass props using URLs.
-
-* CSS Animations: Not only was this fun, but I feel very confident working with transitions and animations after this project.
-
+* When to use Embedded vs Referenced data
+* How to use callback function & ComponentDidUpdate in React
+* How to working with a team member who works in a different time-zone - something that is very much possible as companies move towards remote working.
 
 ## Future Improvements
 
-* Make it Responsive
-* Audio Fade in and out
-
+- Creating Group seeds with Group members: A challenge I wanted to solve but we ran out of time.
+- Events Page Styling: Make this inline-with other pages
+- Error Handling on the frontend
