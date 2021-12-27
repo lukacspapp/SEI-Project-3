@@ -266,7 +266,15 @@ const handleDropDownCategory = (_event, data) => {
    ```
   
   
-  
+ The background music was implemented by Ricardo secretly just before presentation. All credits to him for that🙌
+ 
+ ### Footer - [Component](https://github.com/lukacspapp/SEI-Project-3/blob/main/front-end/src/components/Footer.js)
+
+ <img src='https://i.imgur.com/Ehj72KV.png'>
+
+
+
+
 
 
   
