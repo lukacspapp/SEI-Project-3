@@ -257,7 +257,9 @@ For example, on for the Bio on the user's profile page:
         </div>}
     </div>
 
-The profile page also showed different things based on whether the user was the owner of the profile. For example, the owner got an option to add more completed hikes from their profile page:
+### Browse Page - Component
+
+<img src='https://i.imgur.com/s5B3yYy.png'>
 
     <div className="column columns is-multiline"
     //* if the user is the owner, give option to add Hikes
