@@ -222,7 +222,7 @@ Just as I did in Porject-2, on load the index page triggers the getData function
 
 There were two filters on the browse page which I pair coded with Ricardo.
 
-One is sorting by category,
+ The <code>handleDropDownCaegory</code> function is sorting by category,
 
 ```
 const handleDropDownCategory = (_event, data) => {
@@ -236,7 +236,7 @@ const handleDropDownCategory = (_event, data) => {
     }
   }
  ```
- and the other one is sorting the nfts by price.
+ and the <code>handleDropDownPrice</code> function is sorting the nfts by price.
  
  ```
  const handleDropDownPrice = (_event, data) => {
@@ -250,6 +250,24 @@ const handleDropDownCategory = (_event, data) => {
     } else setFilteredNfts([...nft])
   }
   ```
+  
+  
+  The functions are implemented in the component like this:
+  
+  ```
+             <Container className='animate__animated animate__slideInLeft' >
+              <Menu compact style={{ margin: '10px 0em' }}>
+                <Dropdown placeholder='By Category' clearable onChange={handleDropDownCategory} options={category} simple item />
+              </Menu>
+              <Menu compact>
+                <Dropdown placeholder='By Price' clearable onChange={handleDropDownPrice} options={options} simple item />
+              </Menu>
+            </Container>
+            
+      ```      
+  
+  
+  
 
 
   
