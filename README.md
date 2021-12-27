@@ -160,11 +160,6 @@ On day 4, we moved on to Frontend. After setting up the React App, installing HT
 > 
 > - [NFT detail page](https://tokenizer-nft.herokuapp.com/browse/61ba59098fedecfda8f922d2) and the functionality of the [Cart page](https://tokenizer-nft.herokuapp.com/cart). 
 
-Lukacs: Home page, Browser page, Footer, design the Theme of the website
-Gayatri: Login page, Register page, Add your NFT page
-Ricardo: NFT detail page and the functionality of the Cart page. 
-
-
 
 
 
@@ -173,7 +168,10 @@ For the theme of the website I got the inspiration from [<img src='https://www.s
 
 
 
-<img src="frontend/src/styles/assets/README/login.png" alt="login-page" />
+### Home Page
+
+
+<img src="https://i.imgur.com/qlCRYXF.png" alt="login-page" />
 
 To do this I ensured that both register and login controllers returned a token on the backend. On the frontend, once a user registered - I logged them in and sent them to the Hikes Index page:
 
