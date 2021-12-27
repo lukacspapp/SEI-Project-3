@@ -63,7 +63,7 @@ We have decided to build the backend together. One person was sharing screen and
 
 We planned out the basic look of tha application on Jamboard [<img src="https://i.imgur.com/z3sAHmM.png" width='20px'  />](https://jamboard.google.com/d/1zeemytBD6dOylNV8AHH5jVvw1_8ZdwcZpfOF2kf9Lbo/viewer)
 
-<img src="frontend/src/styles/assets/README/hikr-home-miro.png" alt="home-page-miro" width="400" /> <img src="frontend/src/styles/assets/README/hike-index-miro.png" alt="hikr-index-miro" width="400" /> <img src="frontend/src/styles/assets/README/hike-show-miro.png" alt="hike-show-miro" width="400" /> <img src="frontend/src/styles/assets/README/login-miro.png" alt="login-miro" width="400" /> <img src="frontend/src/styles/assets/README/profile-miro.png" alt="profile-miro" width="400" /> <img src="frontend/src/styles/assets/README/group-miro.png" alt="group-miro" width="400" />
+<img src="https://i.imgur.com/9eunZc0.png" alt="lukacs" width="400" /> <img src="https://i.imgur.com/BZ9SWq0.png" alt="gayatry" width="400" /> <img src="https://i.imgur.com/65ruUj0.png" alt="ricardo" width="400" /> <img src="https://i.imgur.com/xxzKnoy.png" alt="lukacs" width="400" />
 
 # Process
 
