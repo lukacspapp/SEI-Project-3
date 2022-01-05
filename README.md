@@ -34,7 +34,7 @@ Ricardo Rivera-Cabrera - [<img src="https://i.stack.imgur.com/gVE0j.png" width='
 
 # Tokenizer
 
-A MERN-Stack NFT E-commerce app. Users can view, buy and upload their own nft. Once a user is registered they can uploadand edit thier nft. All nfts has their own price charts so users can follow price fluctuations of all nfts.
+A MERN-Stack NFT E-commerce app. Users can view, buy and upload their own NFT. Once a user is registered they can upload and edit their NFT. All NFTs have their own price charts so users can follow the price fluctuations of all NFTs.
 
 [<img src="https://i.imgur.com/qlCRYXF.png"  alt="linkedin">](https://tokenizer-nft.herokuapp.com/)    
 
@@ -55,7 +55,7 @@ https://github.com/lukacspapp/SEI-Project-3
 
 ## Planning
 
-We have decided to build the backend together. One person was sharing screen and the other two guided the coding person. The backend part took three full days to build out and each member of the group coded for one day during that time. For the frontend we used [<img src="https://cdn.worldvectorlogo.com/logos/asana-logo.svg" width='20px'  />](https://app.asana.com/) [Assana](https://app.asana.com/) to plan out responsibilities for each member.
+We have decided to build the backend together. One person was sharing the screen and the other two guided the coding person. The backend part took three full days to build out and each member of the group coded for one day during that time. For the frontend we used [<img src="https://cdn.worldvectorlogo.com/logos/asana-logo.svg" width='20px'  />](https://app.asana.com/) [Assana](https://app.asana.com/) to plan out responsibilities for each member.
 
 <img src="https://i.imgur.com/nlJIZIj.png" />
 
@@ -73,7 +73,7 @@ Our notes are outlined in the next section with code examples.
 
 ## Backend (Day 1 to 3)
 
-We had a strong start as the three of us finished the Backend by the end of Day 3. On Day 2, We worked on our models, controller and routes. On Day 3, we troubleshooted bugs together.
+We had a strong start as the three of us finished the Backend by the end of Day 3. On Day 2, We worked on our models, controller, and routes. On Day 3, we troubleshot bugs together.
 
 ### Models
 
@@ -173,9 +173,9 @@ For the theme of the website I got the inspiration from [<img src='https://www.s
 
 <img src="https://i.imgur.com/qlCRYXF.png" alt="login-page" />
 
-The home page displays a carousel of four images with dotted design provided by Semantic UI React and also two buttons once that leads the user to [Register Page](https://tokenizer-nft.herokuapp.com/register) and once that leads to the [Browse page](https://tokenizer-nft.herokuapp.com/browse). For the animaton of the website I used [animate.css](https://animate.style/). The carousel was designed by me and Gayatri.
+The home page displays a carousel of four images with dotted design provided by Semantic UI React and also two buttons once that leads the user to [Register Page](https://tokenizer-nft.herokuapp.com/register) and once that leads to the [Browse page](https://tokenizer-nft.herokuapp.com/browse). For the animation of the website, I used [animate.css](https://animate.style/). The carousel was designed by me and Gayatri.
 
-Just as I did in Porject-2, on load the index page triggers the getData function that makes the request to the API with axios and sets the data to a useState.
+Just as I did in Project-2, on load the index page triggers the getData function that makes the request to the API with Axios and sets the data to a state.
 ```
  useEffect(() => {
     const getData = async () => {
@@ -191,7 +191,7 @@ Just as I did in Porject-2, on load the index page triggers the getData function
   }, [])
   ```
   
- Once the data is returned I am using <code>.filter</code> array method to return information about the first for items for the carousel.
+ Once the data is returned I am using <code>.filter</code> array method to return information about the first items for the carousel.
 ```
 {nftData.filter((_item, index) => index < 4).map((product, index) => {
                       return (
@@ -266,13 +266,13 @@ const handleDropDownCategory = (_event, data) => {
    ```
   
   
- The background music was implemented by Ricardo secretly just before presentation. All credits to him for that🙌
+ The background music was implemented by Ricardo secretly just before the presentation. All credits to him for that🙌
  
  ### Footer - [Component](https://github.com/lukacspapp/SEI-Project-3/blob/main/front-end/src/components/Footer.js)
 
  <img src='https://i.imgur.com/Ehj72KV.png'>
 
-  Other than working on the footer I also implemented design elements to the add NFT page, Login page and the Register page. 
+  Other than working on the footer I also implemented design elements to the add NFT page, Login page, and the Register page. 
 
 
 
@@ -285,7 +285,7 @@ All three of us addedd 20 NFTs each to the intitial database throughout this 9 d
 
 **Planning**:
 
-Semantic UI React - While we did a great job planning as a team, it was definitely challenging to learn a new CSS framework in such a short period of time but at the and we were glad we did as it turned out to be a big win.
+Semantic UI React - While we did a great job planning as a team, it was definitely challenging to learn a new CSS framework in such a short period of time but and we were glad we did as it turned out to be a big win.
 
 The clearing [Cart Method](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/users.js) - This was definitely a big challenge for the team and Ricardo rewrote the backend part with two methods from Mongoose
 
@@ -333,22 +333,22 @@ export const clearCart = async (req,res) => {
 
 ## Wins
 
-Planning ✍️ : This one comes in under challenges and wins! While getting the right answer took some time, spending our Day 1 on planning alone meant we made a strong start and finished the backend in two days.
+Planning ✍️: This one comes in under challenges and wins! While getting the right answer took some time, spending our Day 1 on planning alone meant we made a strong start and finished the backend in two days.
 
 Reading 📕 : Learning reading documentation for the Semantic UI and Mongoose.
 
-Features ✨: I'm very happy with the amount of work we got done in 9 days. The app offers several functionality whilst still having a strong user journey..
-
-Styling 🤩: The app has a slick design , something I was very keen to achive was a modern, proffessional looking website with nice color.
+Features ✨: I'm very happy with the amount of work we got done in 9 days. The app offers much functionality whilst still having a strong user journey.
+Styling 🤩: The app has a slick design, something I was very keen to achieve was a modern, professional-looking website with nice color.
 
 ## Key Learnings
 
 * When to use Embedded vs Referenced data
-* Learning to read documentation
+* Learning to read the documentation
 * How to be working in a team while managing time.
 
 ## Future Improvements
 
 - Make all the pages responsive:
-- Adding a package for picture uploading so users can upload images from thier device 
+- Adding a package for picture uploading so users can upload images from their device 
 - Error handling on the frontend
+
