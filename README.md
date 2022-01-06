@@ -55,7 +55,7 @@ https://github.com/lukacspapp/SEI-Project-3
 
 ## Planning
 
-We have decided to build the backend together. One person was sharing the screen and the other two guided the coding person. The backend part took three full days to build out and each member of the group coded for one day during that time. For the frontend we used [<img src="https://cdn.worldvectorlogo.com/logos/asana-logo.svg" width='20px'  />](https://app.asana.com/) [Assana](https://app.asana.com/) to plan out responsibilities for each member.
+We decided to build the backend together. One person was sharing the screen and the other two guided the coding person. The backend part took three full days to build out and each member of the group coded for one day during that time. For the frontend we used [<img src="https://cdn.worldvectorlogo.com/logos/asana-logo.svg" width='20px'  />](https://app.asana.com/) [Assana](https://app.asana.com/) to plan out responsibilities for each member.
 
 <img src="https://i.imgur.com/nlJIZIj.png" />
 
@@ -67,13 +67,33 @@ We planned out the basic look of tha application on [<img src="https://i.imgur.c
 
 # Process
 
+Each morning at 10 we jumped on Zoom and had a stand-up. After the stand-up, Zoom would be just open in the background in case anyone needed help. We also communicated through Slack in case anyone needed an image, video, or any links.
+
 As each of us had our Backend areas to work on, we first planned out what models, controllers & routes each of us will be writing before moving on to the code session. We also decided on which aspects of our models will be embedded or referenced.
 
 Our notes are outlined in the next section with code examples.
 
 ## Backend (Day 1 to 3)
 
-We had a strong start as the three of us finished the Backend by the end of Day 3. On Day 2, We worked on our models, controller, and routes. On Day 3, we troubleshot bugs together.
+> **Lukacs**:
+>
+>  Responsible for building out the models and seeding 
+
+
+> **Gayatri**:
+> 
+> Responsible for building out the controllers and seeding
+
+
+> **Ricardo**:
+> 
+> Responsible for working out how to remove items from the cart. (checkout and delete)
+
+
+
+
+
+We had a strong start as the three of us finished the Backend by the end of Day 3. We also troubleshot bugs together on Day 3.
 
 ### Models
 
@@ -266,7 +286,7 @@ const handleDropDownCategory = (_event, data) => {
    ```
   
   
- The background music was implemented by Ricardo secretly just before the presentation. All credits to him for that🙌
+ The background music was implemented by Ricardo secretly just before the presentation. All credits to him for that 🙌
  
  ### Footer - [Component](https://github.com/lukacspapp/SEI-Project-3/blob/main/front-end/src/components/Footer.js)
 
@@ -278,16 +298,16 @@ const handleDropDownCategory = (_event, data) => {
 
 ### Seeding 
 
-All three of us addedd 20 NFTs each to the intitial database throughout this 9 days mostly sorced from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='20px' > Kraken](https://www.kraken.com/en-gb/)
+All three of us added 20 NFTs each to the initial database throughout this 9 days mostly sourced from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='20px' > Kraken](https://www.kraken.com/en-gb/)
 
 
 ## Challenges
 
 **Planning**:
 
-Semantic UI React - While we did a great job planning as a team, it was definitely challenging to learn a new CSS framework in such a short period of time but and we were glad we did as it turned out to be a big win.
+Semantic UI React - While we did a great job planning as a team, it was definitely challenging to learn a new CSS framework in such a short period of time but we were glad we did as it turned out to be a big win.
 
-The clearing [Cart Method](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/users.js) - This was definitely a big challenge for the team and Ricardo rewrote the backend part with two methods from Mongoose
+The clearing [Cart Method](https://github.com/lukacspapp/SEI-Project-3/blob/main/controllers/users.js) - This was definitely a big challenge for the team and Ricardo rewrote the backend part with two methods from Mongoose.
 
 One is the <code>$pull</code>
 ```
@@ -338,6 +358,7 @@ Planning ✍️: This one comes in under challenges and wins! While getting the 
 Reading 📕 : Learning reading documentation for the Semantic UI and Mongoose.
 
 Features ✨: I'm very happy with the amount of work we got done in 9 days. The app offers much functionality whilst still having a strong user journey.
+
 Styling 🤩: The app has a slick design, something I was very keen to achieve was a modern, professional-looking website with nice color.
 
 ## Key Learnings
@@ -348,7 +369,6 @@ Styling 🤩: The app has a slick design, something I was very keen to achieve w
 
 ## Future Improvements
 
-- Make all the pages responsive:
-- Adding a package for picture uploading so users can upload images from their device 
-- Error handling on the frontend
-
+- Make all the pages responsive.
+- Adding a package for picture uploading so users can upload images from their device.
+- Error handling on the frontend.
