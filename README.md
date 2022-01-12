@@ -28,7 +28,7 @@ Ricardo Rivera-Cabrera - [<img src="https://i.stack.imgur.com/gVE0j.png" width='
 - Recharts
 - HTTP-proxy-middleware
 - Bcrypt
-- jsonwebtoken
+- JSON Web Token
 - date-fns
 - Animate.css
 
@@ -286,7 +286,7 @@ const handleDropDownCategory = (_event, data) => {
    ```
   
   
- The background music was implemented by Ricardo secretly just before the presentation. All credits to him for that 🙌
+The background music was implemented by Ricardo secretly just before the presentation. All credits to him for that 🙌
  
  ### Footer - [Component](https://github.com/lukacspapp/SEI-Project-3/blob/main/front-end/src/components/Footer.js)
 
@@ -298,7 +298,7 @@ const handleDropDownCategory = (_event, data) => {
 
 ### Seeding 
 
-All three of us added 20 NFTs each to the initial database throughout this 9 days mostly sourced from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='20px' > Kraken](https://www.kraken.com/en-gb/)
+All three of us added 20 NFTs each to the initial database throughout the 9 days mostly sourced from [<img src='https://www.svgrepo.com/show/331457/kraken.svg' width='20px' > Kraken](https://www.kraken.com/en-gb/)
 
 
 ## Challenges
@@ -363,8 +363,8 @@ Styling 🤩: The app has a slick design, something I was very keen to achieve w
 
 ## Key Learnings
 
-* When to use Embedded vs Referenced data
-* Learning to read the documentation
+* When to use Embedded vs Referenced data.
+* Learning to read the documentation.
 * How to be working in a team while managing time.
 
 ## Future Improvements
